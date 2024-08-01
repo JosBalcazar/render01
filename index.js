@@ -10,10 +10,7 @@ const mongoURI = process.env.MONGO_URI || 'mongodb+srv://jossecap:VCHjqIlTwGQtXl
 app.use(bodyParser.json());
 app.use('/products', productRoutes);
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(mongoURI, {})
 .then(() => console.log('Conectado a MongoDB'))
 .catch(err => console.error('Error de conexión a MongoDB:', err));
 
