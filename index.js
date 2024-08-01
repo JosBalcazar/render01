@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const productRoutes = require('./routes/products');
 
+require('dotenv').config();
+const mongoURL = process.env.MONGODB_URI
+
 const app = express();
 const port = process.env.PORT || 3000;
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://jossecap:VCHjqIlTwGQtXlQl@cluster0.4u5mx8u.mongodb.net/carritovta01';
+const mongoURI = process.env.MONGO_URI || mongoURL;
 
 app.use(bodyParser.json());
 app.use('/products', productRoutes);
