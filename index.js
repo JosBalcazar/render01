@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use('/products', productRoutes);
 
 mongoose.connect(mongoURI, {})
-.then(() => console.log('Conectado a MongoDB'))
+.then(() => console.log('Conectado a MongoDB !'))
 .catch(err => console.error('Error de conexión a MongoDB:', err));
 
 const server = app.listen(port, () => {
