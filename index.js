@@ -17,6 +17,9 @@ mongoose.connect(mongoURI, {
 .then(() => console.log('Conectado a MongoDB'))
 .catch(err => console.error('Error de conexión a MongoDB:', err));
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
